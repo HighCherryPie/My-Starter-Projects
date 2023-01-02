@@ -22,11 +22,18 @@ Detecting Collisons --
 
 
 """
-
-from os import system
+import os
 from random import randint
 from time import sleep
 ############################################################################3 The Display
+
+def clear():
+    if(os.name == "posix"):
+        os.system("clear")
+    else:
+        os.system("cls")
+    
+
 
 class display:
 
@@ -166,7 +173,7 @@ class userInput():
         invalid = False
         while True:
             try:
-                system("cls")
+                clear()
                 
                 snake.addToDraw()  # adds Snake body to Draw
                 display.update()   # Draws canvas according to draw list and clears draw list
@@ -211,7 +218,7 @@ class runtime():
     @staticmethod
     def mainloop():
         
-        system("cls")   
+        clear()   
         snake.snakeMove()
         snake.addToDraw()  # adds Snake body to Draw
         display.update()   # Draws canvas according to draw list and clears draw list
